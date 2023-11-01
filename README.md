@@ -9,9 +9,13 @@ Web de la [API](https://developers.thecatapi.com/view-account/ylX4blBYT9FaoVd6Oh
 ## Preguntas previas
 
 1. ¿Porque podemos ver un texto 'un gato' al cargar la app por primera vez?
-2. ¿Cuál es la URL que nos va a proporcionar un gato aleatório?
-3. Describe con exactitud el tipo de dato que devuelve esta API
+    Podemos ver un texto gracias al atributo alt que se encuentra dentro de la etiqueta img ya que el src está vacío.
 
+2. ¿Cuál es la URL que nos va a proporcionar un gato aleatório?
+    El que obtendremos mediante la respuesta JSON de vuelta por la API que se asignará a lafuente src de la etiqueta img
+
+3. Describe con exactitud el tipo de dato que devuelve esta API
+    Eltipo de dato es un objetoJSON. Formato de intercambio de datos.
 ## Ejercicio y evaluación
 
 1. Asocio correctamente el evento clic al botón - **1 pt.**

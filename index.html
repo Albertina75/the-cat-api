@@ -12,16 +12,48 @@
 </head>
 
 <body>
+    <!-- Este es el contenedor principal de la aplicación -->
     <div class="container" id="cat-container" style="width:75%; margin: 1rem auto;text-align: center;">
-        <img id="cat-image" src="" alt="un gato">
+        <img id="cat-image"  src="" alt="un gato">
         <button id="get-cat" style="margin-top: 1rem;">Nuevo Gato</button>
     </div>
+    <!-- Este es el contenedor para mostrar el ancho y la altura de la imagen -->
     <div class="container">
         <h2 id="width">Width: <span></span></h2>
         <h2 id="height">Height: <span></span></h2>
     </div>
+    <!-- Para manejar la lógica de la aplicación -->
     <script>
-        // Suerte !
+        //cerco element html per emmagatzamar-lo (botó)
+        const boton = document.querySelector('#get-cat');
+        //esdeveniment del clic
+        boton.addEventListener('click', fetchCatImage);
+        //depuració
+        console.log(boton);
+        //s'exexutarà aquesta funció quan l'usuari faci clic
+        async function fetchCatImage() {
+            //Crida a l'API mitjançant la funció ()Url dintre per obyenir imatge
+            const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10&breed_ids=beng&api_key=REPLACE_ME');
+            //espera resposta de l'API i converteix la resposta en objecte json
+            const data = await response.json();
+            //mostre amb fins de depuració            
+            console.log('Respuesta del API', data);
+            //selecció un element d'imatge i actualitza src amb Url imatge gat obtinguda de la resposta de l'API
+            const catImage = document.querySelector('#cat-image');
+            //mateix amb l'alçada i l'amplada
+            console.log('Contenedor imagen gato', catImage);
+
+            const widthElement = document.querySelector('#width span');
+            const heightElement = document.querySelector('#height span');
+
+
+            catImage.src = data[0].url;
+            widthElement.textContent = data[0].width + 'px';
+            heightElement.textContent = data[0].height + 'px';
+        }
+
+        
+
     </script>
 </body>
 
